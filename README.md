@@ -1,6 +1,6 @@
 # Home network
 
-[Alchemy](https://alchemy.run) configuration for my UniFi home networks, using [`@alchemy-unifi/network`](../alchemy-unifi). See [docs/architecture.md](docs/architecture.md).
+[Alchemy](https://alchemy.run) configuration for my UniFi home networks, using [`@alchemy-unifi/network`](https://github.com/HamishWHC/alchemy-unifi). See [docs/](docs/README.md).
 
 ## Setup
 
@@ -14,4 +14,4 @@ pnpm alchemy plan --stage <site> --profile <site>
 pnpm alchemy deploy --stage <site> --profile <site>
 ```
 
-After changing the provider, run `pnpm sync-provider` again. An earlier, never-applied Terraform configuration is kept for reference in `../terraform/`.
+After changing the provider, run `pnpm sync-provider` again.
