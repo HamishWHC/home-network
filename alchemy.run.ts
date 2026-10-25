@@ -6,8 +6,8 @@ import { site } from "./src/sites.ts";
 
 /**
  * One stack, deployed once per physical site. The stage selects the site
- * (`alchemy deploy --stage <site>`), and each site's profile holds the
- * credentials for its console (`--profile <site>`).
+ * (`--stage home`), and a profile for that site supplies its console's
+ * credentials (`--profile home` or `--profile home-remote`).
  */
 export default Alchemy.Stack(
 	"HomeNetwork",
@@ -16,7 +16,12 @@ export default Alchemy.Stack(
 		state: AWS.state(),
 	},
 	Effect.gen(function* () {
+		// Fails unless the profile belongs to this stage's site.
 		const current = yield* site;
+
+		// Resources go here. They use the profile's console and its default
+		// site, e.g. `yield* UnifiNetwork.Network("Trusted", { vlanId: 10, ... })`.
+
 		return { site: current.name };
 	}),
 );

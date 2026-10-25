@@ -12,7 +12,8 @@
 		"fmt": "oxfmt",
 		"fmt:check": "oxfmt --check",
 		"sync-provider": "pnpm --dir ../alchemy-unifi build && pnpm install",
-		"prepare": "lefthook install && effect-tsgo patch"
+		"prepare": "lefthook install && effect-tsgo patch",
+		"alchemy": "alchemy"
 	},
 	"dependencies": {
 		"@alchemy-unifi/network": "file:../alchemy-unifi/packages/network",
