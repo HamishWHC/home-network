@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Alchemy
+.alchemy/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+.zed/
+
+# OS
+.DS_Store
+Thumbs.db

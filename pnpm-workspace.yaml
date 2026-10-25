@@ -1,0 +1,16 @@
+allowBuilds:
+  esbuild: true
+  lefthook: true
+  msgpackr-extract: false
+minimumReleaseAgeExclude:
+  - "@alchemy.run/docker@2.0.0-beta.84"
+  - "@alchemy.run/kubernetes@2.0.0-beta.84"
+  - "@alchemy.run/sql@2.0.0-beta.84"
+  - "@effect/tsgo-darwin-arm64@0.56.1"
+  - "@effect/tsgo-darwin-x64@0.56.1"
+  - "@effect/tsgo-linux-arm64@0.56.1"
+  - "@effect/tsgo-linux-arm@0.56.1"
+  - "@effect/tsgo-linux-x64@0.56.1"
+  - "@effect/tsgo-win32-arm64@0.56.1"
+  - "@effect/tsgo-win32-x64@0.56.1"
+  - "@effect/tsgo@0.56.1"
