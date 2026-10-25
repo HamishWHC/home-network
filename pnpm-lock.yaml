@@ -162,6 +162,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@alchemy-unifi/network-sdk': file:../alchemy-unifi/packages/network-sdk
+
 importers:
 
   .:
@@ -208,6 +211,11 @@ importers:
         version: 7.1.0-beta
 
 packages:
+
+  '@alchemy-unifi/network-sdk@file:../alchemy-unifi/packages/network-sdk':
+    resolution: {directory: ../alchemy-unifi/packages/network-sdk, type: directory}
+    peerDependencies:
+      effect: ^4.0.6
 
   '@alchemy-unifi/network@file:../alchemy-unifi/packages/network':
     resolution: {directory: ../alchemy-unifi/packages/network, type: directory}
@@ -1075,9 +1083,14 @@ packages:
 
 snapshots:
 
-  '@alchemy-unifi/network@file:../alchemy-unifi/packages/network(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)':
+  '@alchemy-unifi/network-sdk@file:../alchemy-unifi/packages/network-sdk(effect@4.0.6)':
     dependencies:
       '@distilled.cloud/core': 1.0.0-rc.17(effect@4.0.6)
+      effect: 4.0.6
+
+  '@alchemy-unifi/network@file:../alchemy-unifi/packages/network(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)':
+    dependencies:
+      '@alchemy-unifi/network-sdk': file:../alchemy-unifi/packages/network-sdk(effect@4.0.6)
       alchemy: 2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0)
       effect: 4.0.6
 

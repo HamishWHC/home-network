@@ -21,6 +21,6 @@ Things you must know that aren't obvious from the code.
 
 ## Provider dependency
 
-- `@alchemy-unifi/network` is an injected `file:` dependency on a local checkout at `../alchemy-unifi`, because it isn't published yet.
+- `@alchemy-unifi/network` is an injected `file:` dependency on a local checkout at `../alchemy-unifi`, because it isn't published yet. Its `workspace:*` dependency on `@alchemy-unifi/network-sdk` can't resolve here, so `overrides` in `pnpm-workspace.yaml` points it at the same checkout.
 - After changing the provider, run `pnpm sync-provider`, or this repo keeps using the old build.
-- Once it's published, replace the `file:` spec with a version range, and remove `dependenciesMeta` and the `sync-provider` script.
+- Once it's published, replace the `file:` spec with a version range, and remove `dependenciesMeta`, the `overrides` and the `sync-provider` script.

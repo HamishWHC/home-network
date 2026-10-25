@@ -14,3 +14,7 @@ minimumReleaseAgeExclude:
   - "@effect/tsgo-win32-arm64@0.56.1"
   - "@effect/tsgo-win32-x64@0.56.1"
   - "@effect/tsgo@0.56.1"
+# The provider's `workspace:*` dependency on its SDK only resolves inside its
+# own workspace, so point it at the local checkout too.
+overrides:
+  "@alchemy-unifi/network-sdk": "file:../alchemy-unifi/packages/network-sdk"
