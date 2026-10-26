@@ -13,6 +13,7 @@
 		"fmt:check": "oxfmt --check",
 		"sync-provider": "pnpm --dir ../alchemy-unifi build && pnpm install",
 		"secrets:updatekeys": "sops updatekeys secrets/*.yaml",
+		"cloc": "cloc --vcs=git --fullpath --not-match-d='/secrets(/|$)' --not-match-f='/pnpm-lock\\.yaml$'",
 		"prepare": "lefthook install && effect-tsgo patch",
 		"alchemy": "alchemy"
 	},
