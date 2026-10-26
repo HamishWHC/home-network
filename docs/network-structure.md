@@ -23,7 +23,7 @@ Every network is gateway-managed on `192.168.<VLAN>.0/24`, with the gateway at `
 
 SSID names and passphrases differ per site and are secret; see [secrets.md](secrets.md).
 
-- **Main:** on Management (sent to UniFi as the native network), WPA2/WPA3 transition with PMF optional, band steering, on 2.4, 5 and 6 GHz (with a −88 dBm 6 GHz handoff threshold).
+- **Main:** on Trusted, WPA2/WPA3 transition with PMF optional, band steering, on 2.4, 5 and 6 GHz (with a −88 dBm 6 GHz handoff threshold).
 - **IoT:** WPA2 with one key per IoT network, so the key a device joins with puts it on Open or Restricted. Client isolation is on, and it uses 2.4 + 5 GHz without band steering.
 
 The main SSID and the Management network have `RemovalPolicy.retain()`, so removing them from the config never deletes them.

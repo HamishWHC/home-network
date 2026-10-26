@@ -40,7 +40,7 @@ export const wifi = (networks: Networks) =>
 		const main = yield* UnifiNetwork.WifiBroadcast("main", {
 			...common,
 			name: secrets.main.ssid,
-			network: networks.management,
+			network: networks.trusted,
 			clientIsolationEnabled: false,
 			bandSteeringEnabled: true,
 			broadcastingFrequenciesGHz: [2.4, 5, 6],
