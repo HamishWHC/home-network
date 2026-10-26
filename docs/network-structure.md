@@ -40,6 +40,8 @@ Every network is gateway-managed on `192.168.<VLAN>.0/24`, with the gateway at `
 - **Gateway basics:** for IoT and VPN clients, a block on TCP/UDP to every port except DNS (53), DHCP (67), DHCPv6 (547) and mDNS (5353); ICMP stays allowed. UniFi already gives Hotspot and Dmz only the basics, and Trusted and Management keep everything (Management's UniFi gear is managed by the console on the gateway).
 - **IoT (Restricted)'s internet** is the network's internet-access flag, which UniFi turns into a system block rule. Per-device allow-lists, and full access for devices I'm still working out allow-lists for, are policies I make in the UI: they sit before system rules, so they win. The config declares no ordering for IoT → External, so it never reorders them.
 - **VPNs:** none yet. Holiday is behind CGNAT, and UniFi Teleport only gives internet access, so Trusted administers Management and the gateway. VPN clients are locked down so that any added later get nothing by default.
+- **Traffic within one network** never reaches the firewall. The IoT SSID's client isolation keeps Wi-Fi IoT devices apart; anything finer would need switch ACL rules.
+- **Devices that open connections back** (e.g. an Apple TV to an iPad for some AirPlay features) get a specific allow when something breaks, rather than a wider cell.
 - **The default security posture is Block All** (set in the UI). It only shapes defaults for things created in the UI later.
 
 ## Wi-Fi

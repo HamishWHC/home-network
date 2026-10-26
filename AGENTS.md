@@ -22,5 +22,7 @@ Things you must know that aren't obvious from the code.
 ## Provider dependency
 
 - `@alchemy-unifi/network` is an injected `file:` dependency on a local checkout at `../alchemy-unifi`, because it isn't published yet. Its `workspace:*` dependency on `@alchemy-unifi/network-sdk` can't resolve here, so `overrides` in `pnpm-workspace.yaml` points it at the same checkout.
+- Don't switch it to `pnpm link`/`link:`: the symlinked provider then loads alchemy-unifi's own `alchemy` and `effect`, so there are two copies of each, and typechecking fails (e.g. two incompatible `AuthError` types). Injection resolves its peers from this repo.
+- The injected copy is hard-linked to the checkout, so go-to-definition (through the provider's declaration maps) opens files under `node_modules/.pnpm/…` that are the checkout's own source files. A new source file needs `pnpm sync-provider` to appear there.
 - After changing the provider, run `pnpm sync-provider`, or this repo keeps using the old build.
 - Once it's published, replace the `file:` spec with a version range, and remove `dependenciesMeta`, the `overrides` and the `sync-provider` script.
