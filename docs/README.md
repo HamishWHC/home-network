@@ -2,11 +2,12 @@
 
 Alchemy configuration for my two UniFi home networks. These docs describe what exists now.
 
-Current state: scaffold only. The stack deploys no resources yet, because the provider has none.
+The stack declares my networks, firewall zones and Wi-Fi ([network-structure.md](network-structure.md)). SSIDs and passphrases come from sops-encrypted files, read through secretspec ([secrets.md](secrets.md)).
 
 ## How it's organised
 
-- `alchemy.run.ts` defines one stack, `HomeNetwork`, with `UnifiNetwork.providers()` and `AWS.state()`.
+- `alchemy.run.ts` defines one stack, `HomeNetwork`, with `UnifiNetwork.providers()`, `AWS.state()` and the stage's secretspec profile. It composes `src/zones.ts`, `src/networks.ts` and `src/wifi.ts`.
+- **Logical IDs are unique across the stack, not per resource type**, so the zones are `iot-zone` and `management-zone`.
 - **Stage = physical site** (`home`, `holiday`). The same stack is deployed once per site, with state namespaced per stage, so the two networks never share state.
 - **Profile = a way to reach that site's console.** Each site has two Alchemy profiles, listed in `src/sites.ts`:
 
@@ -46,7 +47,7 @@ Each of my consoles hosts one UniFi site (UniFi's "site" is a namespace within a
 
 `AWS.state()` uses Alchemy's default S3 bucket for the account and region (`alchemy-state-<account>-<region>-an`), created on first deploy, with AWS profile `hamishwhc` in `ap-southeast-2`.
 
-State will contain Wi-Fi passphrases; the bucket is private.
+State contains the Wi-Fi passphrases; the bucket is private.
 
 ## Provider dependency
 

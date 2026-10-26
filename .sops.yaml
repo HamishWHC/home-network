@@ -1,0 +1,5 @@
+# Secrets per stage, read through secretspec; see docs/secrets.md.
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    # Personal MacBook.
+    age: age1q4xrt58ufwd422kcefqumqmtnf4lc344cytdejzfm86vlm4aavfq9tve68

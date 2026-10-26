@@ -15,12 +15,14 @@ export interface Site {
 	 * directly, one through ui.com for when I'm elsewhere.
 	 */
 	readonly profiles: ReadonlyArray<string>;
+	/** Whether the site has the Homelab network (only home has servers). */
+	readonly homelab: boolean;
 }
 
 /** Sites by stage name. */
 const sites: Record<string, Site> = {
-	home: { name: "Home", profiles: ["home", "home-remote"] },
-	holiday: { name: "Holiday", profiles: ["holiday", "holiday-remote"] },
+	home: { name: "Home", profiles: ["home", "home-remote"], homelab: true },
+	holiday: { name: "Holiday", profiles: ["holiday", "holiday-remote"], homelab: false },
 };
 
 export class UnknownSite extends Data.TaggedError("UnknownSite")<{ readonly stage: string }> {

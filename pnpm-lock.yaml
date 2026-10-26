@@ -184,6 +184,9 @@ importers:
       effect:
         specifier: ^4.0.6
         version: 4.0.6
+      secretspec:
+        specifier: ^0.21.1
+        version: 0.21.1
     dependenciesMeta:
       '@alchemy-unifi/network':
         injected: true
@@ -1045,6 +1048,43 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
+  secretspec-darwin-arm64@0.21.1:
+    resolution: {integrity: sha512-y0B3ppArIS5WsXMaa6B3AqAaG/Hxs9kRC2fgWXGtskdtk+UCfA6qjVjBsiKE79XV2R5tnUKc+j9e0aizbSa/zw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  secretspec-linux-arm64-gnu@0.21.1:
+    resolution: {integrity: sha512-NvOXyQ4iB2mQySvHBv9mE9rr1nZpmB3yBLQIkBeWluH8LfUEgKV7OaOaUORf89ub2nEzVTIC1dFBxbFqAEIFug==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  secretspec-linux-arm64-musl@0.21.1:
+    resolution: {integrity: sha512-47u/ZfyxX+ljWG0e/kxZI/4v2cOIdqwel/cmahdv05R+4tNi/JGMdCv9dRCdL1UjUWeIdRMGZ+L0Wi08LBvIwg==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  secretspec-linux-x64-gnu@0.21.1:
+    resolution: {integrity: sha512-ArG4e0u9DQtXV/hBYaO4ivuFM8l+sM0hl7zOcg/2Bc1hsESknoLEjabaSP6rY9NJKusXGLeMz0ppV9yBs2d2eA==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  secretspec-linux-x64-musl@0.21.1:
+    resolution: {integrity: sha512-NKOZ3AFWrXRGSzH/wT66iKUacRp2zhy76os/7G85ZRChgETLhr2MW/rmpPWJFRIiCDex1zUuQPIQSs+gH1e97A==}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  secretspec-win32-x64-msvc@0.21.1:
+    resolution: {integrity: sha512-XhXqqEGMtQPufNwqMPHFkc/rrTsGWeTVsmE35WYAJVz68mFvejw4z5+WZyV8NomGer/1OtorNFQUnjL8PPKqLw==}
+    cpu: [x64]
+    os: [win32]
+
+  secretspec@0.21.1:
+    resolution: {integrity: sha512-6PftFI4GfEeXBjwJe83xE1+11luVmbao5heuDxC+RYuvapneycb2bl1X+vaG6e6wHzr1/g/Z2YVEGf2vmek4Sw==}
+
   tinyglobby@0.2.17:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
@@ -1623,6 +1663,33 @@ snapshots:
       '@rolldown/binding-openharmony-arm64': 1.2.13
       '@rolldown/binding-win32-arm64-msvc': 1.2.13
       '@rolldown/binding-win32-x64-msvc': 1.2.13
+
+  secretspec-darwin-arm64@0.21.1:
+    optional: true
+
+  secretspec-linux-arm64-gnu@0.21.1:
+    optional: true
+
+  secretspec-linux-arm64-musl@0.21.1:
+    optional: true
+
+  secretspec-linux-x64-gnu@0.21.1:
+    optional: true
+
+  secretspec-linux-x64-musl@0.21.1:
+    optional: true
+
+  secretspec-win32-x64-msvc@0.21.1:
+    optional: true
+
+  secretspec@0.21.1:
+    optionalDependencies:
+      secretspec-darwin-arm64: 0.21.1
+      secretspec-linux-arm64-gnu: 0.21.1
+      secretspec-linux-arm64-musl: 0.21.1
+      secretspec-linux-x64-gnu: 0.21.1
+      secretspec-linux-x64-musl: 0.21.1
+      secretspec-win32-x64-msvc: 0.21.1
 
   tinyglobby@0.2.17:
     dependencies:

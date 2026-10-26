@@ -12,6 +12,7 @@
 		"fmt": "oxfmt",
 		"fmt:check": "oxfmt --check",
 		"sync-provider": "pnpm --dir ../alchemy-unifi build && pnpm install",
+		"secrets:updatekeys": "for f in secrets/*.yaml; do sops updatekeys --yes \"$f\" || exit 1; done",
 		"prepare": "lefthook install && effect-tsgo patch",
 		"alchemy": "alchemy"
 	},
@@ -20,7 +21,8 @@
 		"@alchemy.run/aws": "^2.0.0-beta.84",
 		"@effect/platform-node": "^4.0.6",
 		"alchemy": "^2.0.0-beta.84",
-		"effect": "^4.0.6"
+		"effect": "^4.0.6",
+		"secretspec": "^0.21.1"
 	},
 	"devDependencies": {
 		"@effect/tsgo": "^0.56.1",
