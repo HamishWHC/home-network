@@ -2,6 +2,7 @@ import * as AWS from "@alchemy.run/aws";
 import * as UnifiNetwork from "@alchemy-unifi/network";
 import * as Alchemy from "alchemy";
 import * as Effect from "effect/Effect";
+import { firewall } from "./src/firewall.ts";
 import { networks } from "./src/networks.ts";
 import { SecretSpecSecrets } from "./src/secrets.ts";
 import { site } from "./src/sites.ts";
@@ -26,6 +27,7 @@ export default Alchemy.Stack(
 		const zoneResources = yield* zones;
 		const networkResources = yield* networks(current, zoneResources);
 		const wifiResources = yield* wifi(networkResources);
+		yield* firewall(current, zoneResources, networkResources);
 		return {
 			site: current.name,
 			networks: Object.values(networkResources).flatMap((n) => (n === undefined ? [] : [n.vlanId])),
