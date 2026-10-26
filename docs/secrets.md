@@ -31,4 +31,4 @@ sops secrets/home.yaml   # decrypts into $EDITOR, re-encrypts on save
 
 Adding a top-level key means declaring it in `secretspec.toml` too. secretspec reports a missing or unreadable file as `missing required secret(s)`, not as a file error, so check the path first.
 
-Adding a recipient (another machine) means adding its age public key to `.sops.yaml`, then running `pnpm secrets:updatekeys`, which re-encrypts every file in `secrets/` for the new recipient list.
+Adding a recipient (another machine) means adding its age public key to `.sops.yaml`, then running `pnpm secrets:updatekeys`, which shows each file's key changes and asks before re-encrypting it.

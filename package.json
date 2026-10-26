@@ -12,7 +12,7 @@
 		"fmt": "oxfmt",
 		"fmt:check": "oxfmt --check",
 		"sync-provider": "pnpm --dir ../alchemy-unifi build && pnpm install",
-		"secrets:updatekeys": "for f in secrets/*.yaml; do sops updatekeys --yes \"$f\" || exit 1; done",
+		"secrets:updatekeys": "sops updatekeys secrets/*.yaml",
 		"prepare": "lefthook install && effect-tsgo patch",
 		"alchemy": "alchemy"
 	},
