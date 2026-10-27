@@ -6,6 +6,8 @@ To use the provider in your own project, install it from npm (`npm install @alch
 
 ## Setup
 
+This is for me: it needs my consoles and the age key that decrypts `secrets/`. To adapt the config, start from your own secrets file and profiles ([docs/secrets.md](docs/secrets.md), [docs/README.md](docs/README.md#setting-up-profiles)).
+
 1. Check out `alchemy-unifi` next to this repo, run `pnpm install` there, then `pnpm sync-provider` here (builds the provider and installs it).
 2. Set up the four profiles (a local and a remote one per site); see [docs/README.md](docs/README.md#setting-up-profiles).
 
