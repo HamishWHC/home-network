@@ -52,12 +52,10 @@ Each site's state lives on its own console, through `UnifiNetwork.state()`: a di
 
 ## Provider dependency
 
-`@alchemy-unifi/network` isn't published yet, so it's an **injected** `file:` dependency on a local checkout at `../alchemy-unifi` (`dependenciesMeta.injected`). pnpm hard-links the provider's built `dist/` into `node_modules` and resolves its `effect`/`alchemy` peers from this repo, so there's one instance of each.
+`@alchemy-unifi/network` is on npm, but I develop this repo alongside it, so it's an **injected** `file:` dependency on a local checkout at `../alchemy-unifi` (`dependenciesMeta.injected`). pnpm hard-links the provider's built `dist/` into `node_modules` and resolves its `effect`/`alchemy` peers from this repo, so there's one instance of each.
 
 Rebuilds break the hard links, so after any provider change run:
 
 ```sh
 pnpm sync-provider   # build the provider, then pnpm install to re-link
 ```
-
-Once the provider is published, this becomes an ordinary versioned dependency.
