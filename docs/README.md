@@ -39,11 +39,11 @@ pnpm alchemy profile edit --profile home-remote --add UnifiNetwork   # choose "T
 pnpm alchemy profile show --profile home   # connects and shows the console's Network version
 ```
 
-Each of my consoles hosts one UniFi site (UniFi's "site" is a namespace within a console, unrelated to my physical sites), so profiles don't store one and resources use the console's only site. Profiles made before the provider stopped storing it still show `site: default`; reconfiguring drops it. The provider's `docs/connecting.md` describes the connection options.
+Each of my consoles hosts one UniFi site (UniFi's "site" is a namespace within a console, unrelated to my physical sites), so profiles don't store one and resources use the console's only site. Profiles made before the provider stopped storing it still show `site: default`; reconfiguring drops it. The provider's [Setup](https://alchemy-unifi.hamishwhc.com/setup/) page describes the connection options.
 
 ## State
 
-Each site's state lives on its own console, through `UnifiNetwork.state()`: a disabled firewall policy named `alchemy-state/HomeNetwork/<stage>`. So deploying needs nothing but the console, directly or through ui.com. The provider's `docs/state.md` describes it.
+Each site's state lives on its own console, through `UnifiNetwork.state()`: a disabled firewall policy named `alchemy-state/HomeNetwork/<stage>`. So deploying needs nothing but the console, directly or through ui.com. The provider's [State on the console](https://alchemy-unifi.hamishwhc.com/state/state-on-the-console/) page describes it.
 
 - **Every run locks the stage on the console**, `plan` included: it creates a traffic-matching list `alchemy-lock/HomeNetwork/<stage>` and deletes it when the run ends. Two runs of one site at once fail.
 - **State commands need `--profile`** to find the console, e.g. `pnpm alchemy state ls --profile home`, because they take no `--stage`.

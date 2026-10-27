@@ -2,7 +2,7 @@
 
 [Alchemy](https://alchemy.run) configuration for my UniFi home networks, using [`@alchemy-unifi/network`](https://github.com/HamishWHC/alchemy-unifi). See [docs/](docs/README.md).
 
-To use the provider in your own project, install it from npm (`npm install @alchemy-unifi/network alchemy effect @effect/platform-node`) and follow [its getting-started guide](https://github.com/HamishWHC/alchemy-unifi/blob/main/docs/getting-started.md). This repo builds it from a local checkout instead, because I develop the two together.
+To use the provider in your own project, install it from npm (`npm install @alchemy-unifi/network alchemy effect @effect/platform-node`) and follow [its tutorial](https://alchemy-unifi.hamishwhc.com/tutorial/part-1/). This repo builds it from a local checkout instead, because I develop the two together.
 
 ## Setup
 
