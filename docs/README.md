@@ -39,7 +39,7 @@ pnpm alchemy profile edit --profile home-remote --add UnifiNetwork   # choose "T
 pnpm alchemy profile show --profile home   # connects and shows the console's Network version
 ```
 
-Each of my consoles hosts one UniFi site (UniFi's "site" is a namespace within a console, unrelated to my physical sites), so profiles don't store one and resources use the console's only site. Profiles made before the provider stopped storing it still show `site: default`; reconfiguring drops it. The provider's `docs/connection.md` describes the connection options.
+Each of my consoles hosts one UniFi site (UniFi's "site" is a namespace within a console, unrelated to my physical sites), so profiles don't store one and resources use the console's only site. Profiles made before the provider stopped storing it still show `site: default`; reconfiguring drops it. The provider's `docs/connecting.md` describes the connection options.
 
 ## State
 
