@@ -172,9 +172,6 @@ importers:
       '@alchemy-unifi/network':
         specifier: file:../alchemy-unifi/packages/network
         version: file:../alchemy-unifi/packages/network(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)
-      '@alchemy.run/aws':
-        specifier: ^2.0.0-beta.84
-        version: 2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)
       '@effect/platform-node':
         specifier: ^4.0.6
         version: 4.0.6(effect@4.0.6)(redis@6.3.0)
@@ -227,48 +224,6 @@ packages:
       alchemy: ^2.0.0-beta.84
       effect: ^4.0.6
 
-  '@alchemy.run/aws@2.0.0-beta.84':
-    resolution: {integrity: sha512-6G5Qze+zF9juaDYCD1rNhnb7SlUMTRXtOxS0qUz1vMF53PhIibeJP2+iV9urvQNDLNVpGrSIEDMf0OUCZrj3Gg==}
-    peerDependencies:
-      '@alchemy.run/frontend-frameworks': 2.0.0-beta.84
-      '@effect/platform-bun': ^4.0.5
-      '@effect/platform-node': ^4.0.5
-      alchemy: 2.0.0-beta.84
-      effect: ^4.0.5
-      mongodb: ^6.10.0
-      pg: ^8.22.0
-    peerDependenciesMeta:
-      '@alchemy.run/frontend-frameworks':
-        optional: true
-      '@effect/platform-bun':
-        optional: true
-      '@effect/platform-node':
-        optional: true
-      mongodb:
-        optional: true
-      pg:
-        optional: true
-
-  '@alchemy.run/docker@2.0.0-beta.84':
-    resolution: {integrity: sha512-VaUNlldyPcCrrGDCfFUJD+pvNt3Rpbly+0lzZ4S8AfkpxMD4rZy7GdXcfPzeA26tcDzfsDVax7BGlArzupEc0g==}
-    peerDependencies:
-      '@effect/platform-bun': ^4.0.5
-      alchemy: 2.0.0-beta.84
-      effect: ^4.0.5
-    peerDependenciesMeta:
-      '@effect/platform-bun':
-        optional: true
-
-  '@alchemy.run/kubernetes@2.0.0-beta.84':
-    resolution: {integrity: sha512-yVDuCrHXq4gH5r7y+e5RyDp1YMQbT9KSRvc7uYGYxh9b5EyEzhbKN/Tpvqldi/tfKSU43yuZu44ErCk48kor3g==}
-    peerDependencies:
-      '@effect/platform-bun': ^4.0.5
-      alchemy: 2.0.0-beta.84
-      effect: ^4.0.5
-    peerDependenciesMeta:
-      '@effect/platform-bun':
-        optional: true
-
   '@alchemy.run/node-utils@2.0.0-beta.84':
     resolution: {integrity: sha512-UdvCtwEeLmRNN89gVjkMIQTqzkE+xPQb26dPsQM6JzDdHUyqaTyg64U4RmfUjUul0sWQbbVIeAO475GQYbGELw==}
 
@@ -283,38 +238,6 @@ packages:
         optional: true
       react-devtools-core:
         optional: true
-
-  '@alchemy.run/sql@2.0.0-beta.84':
-    resolution: {integrity: sha512-GdP9zDnm6b25p8DZfeg8HbPk66pfIuTA+IHFSC/I8iKbjUE49WoqBmdSUSJtL4ZmTvndTDCYZ7Y9PehBjNTL+w==}
-    peerDependencies:
-      '@effect/sql-libsql': ^4.0.5
-      '@effect/sql-mysql2': ^4.0.5
-      '@effect/sql-pg': ^4.0.5
-      alchemy: 2.0.0-beta.84
-      effect: ^4.0.5
-      mysql2: ^3.24.2
-      pg: ^8.22.0
-    peerDependenciesMeta:
-      '@effect/sql-libsql':
-        optional: true
-      '@effect/sql-mysql2':
-        optional: true
-      '@effect/sql-pg':
-        optional: true
-      mysql2:
-        optional: true
-      pg:
-        optional: true
-
-  '@distilled.cloud/aws4signer@1.0.0-rc.17':
-    resolution: {integrity: sha512-4wOoFuiadiKOEfDcL0VwGwg4XmZ3vmMxrNJAnTKf87k2WN2Shs7KeUp4GS1TzGGO3NrrpvVw8RFK+dOomDMj5w==}
-    peerDependencies:
-      effect: ^4.0.5
-
-  '@distilled.cloud/aws@1.0.0-rc.17':
-    resolution: {integrity: sha512-LRR1QFVT6i0LP4sqSuLqoXQV0L+EjS9OBecQDOEcxObcGxbfVrLMToWe72bda+Z60Wwt3eY0gNio5vM1eRld9w==}
-    peerDependencies:
-      effect: ^4.0.5
 
   '@distilled.cloud/core@1.0.0-rc.17':
     resolution: {integrity: sha512-BHcVEtqIbyyqU3S3o8DjUtqoAJ4FLnsb4BX3nTK2+mcDARS2Puc+Qak6sn+b+W5CRKOOWyrhltbc+kaYDUwxeQ==}
@@ -758,9 +681,6 @@ packages:
   '@total-typescript/ts-reset@0.6.1':
     resolution: {integrity: sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg==}
 
-  '@types/aws-lambda@8.10.164':
-    resolution: {integrity: sha512-XOnrazWcOd6yWPnR7DxqCBPPYciDjHq+NN8LPwwqBCJNXLyPJgKo47fZpJ113+oyAn9Zti0Cf6H4k6yPcE3WFg==}
-
   '@types/node@24.19.2':
     resolution: {integrity: sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==}
 
@@ -1136,59 +1056,12 @@ snapshots:
       alchemy: 2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0)
       effect: 4.0.6
 
-  '@alchemy.run/aws@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)':
-    dependencies:
-      '@alchemy.run/docker': 2.0.0-beta.84(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)
-      '@alchemy.run/kubernetes': 2.0.0-beta.84(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)
-      '@alchemy.run/sql': 2.0.0-beta.84(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)
-      '@distilled.cloud/aws': 1.0.0-rc.17(effect@4.0.6)
-      '@types/aws-lambda': 8.10.164
-      alchemy: 2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0)
-      effect: 4.0.6
-      rolldown: 1.2.13
-    optionalDependencies:
-      '@effect/platform-node': 4.0.6(effect@4.0.6)(redis@6.3.0)
-    transitivePeerDependencies:
-      - '@effect/sql-libsql'
-      - '@effect/sql-mysql2'
-      - '@effect/sql-pg'
-      - mysql2
-
-  '@alchemy.run/docker@2.0.0-beta.84(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)':
-    dependencies:
-      alchemy: 2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0)
-      effect: 4.0.6
-      rolldown: 1.2.13
-
-  '@alchemy.run/kubernetes@2.0.0-beta.84(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)':
-    dependencies:
-      '@alchemy.run/docker': 2.0.0-beta.84(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)
-      alchemy: 2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0)
-      effect: 4.0.6
-      yaml: 2.9.1
-
   '@alchemy.run/node-utils@2.0.0-beta.84':
     dependencies:
       chokidar: 5.0.0
       rolldown: 1.2.13
 
   '@alchemy.run/sigil@0.1.0-alpha.1': {}
-
-  '@alchemy.run/sql@2.0.0-beta.84(alchemy@2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0))(effect@4.0.6)':
-    dependencies:
-      alchemy: 2.0.0-beta.84(@effect/platform-node@4.0.6(effect@4.0.6)(redis@6.3.0))(effect@4.0.6)(ws@8.22.0)
-      effect: 4.0.6
-
-  '@distilled.cloud/aws4signer@1.0.0-rc.17(effect@4.0.6)':
-    dependencies:
-      '@distilled.cloud/core': 1.0.0-rc.17(effect@4.0.6)
-      effect: 4.0.6
-
-  '@distilled.cloud/aws@1.0.0-rc.17(effect@4.0.6)':
-    dependencies:
-      '@distilled.cloud/aws4signer': 1.0.0-rc.17(effect@4.0.6)
-      '@distilled.cloud/core': 1.0.0-rc.17(effect@4.0.6)
-      effect: 4.0.6
 
   '@distilled.cloud/core@1.0.0-rc.17(effect@4.0.6)':
     dependencies:
@@ -1426,8 +1299,6 @@ snapshots:
   '@rolldown/pluginutils@1.0.1': {}
 
   '@total-typescript/ts-reset@0.6.1': {}
-
-  '@types/aws-lambda@8.10.164': {}
 
   '@types/node@24.19.2':
     dependencies:

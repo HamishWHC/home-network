@@ -6,7 +6,7 @@ The stack declares my networks, firewall zones and Wi-Fi ([network-structure.md]
 
 ## How it's organised
 
-- `alchemy.run.ts` defines one stack, `HomeNetwork`, with `UnifiNetwork.providers()`, `AWS.state()` and the stage's secretspec profile. It composes `src/zones.ts`, `src/networks.ts` and `src/wifi.ts`.
+- `alchemy.run.ts` defines one stack, `HomeNetwork`, with `UnifiNetwork.providers()`, `UnifiNetwork.state()` and the stage's secretspec profile. It composes `src/zones.ts`, `src/networks.ts` and `src/wifi.ts`.
 - **Logical IDs are unique across the stack, not per resource type**, so the zones are `iot-zone` and `management-zone`.
 - **Stage = physical site** (`home`, `holiday`). The same stack is deployed once per site, with state namespaced per stage, so the two networks never share state.
 - **Profile = a way to reach that site's console.** Each site has two Alchemy profiles, listed in `src/sites.ts`:
@@ -18,7 +18,7 @@ The stack declares my networks, firewall zones and Wi-Fi ([network-structure.md]
     | `holiday` | `holiday`        | `local`                                                 |
     | `holiday` | `holiday-remote` | `remote`                                                |
 
-    I use the local profile when I'm on that network, and the remote one otherwise. Every profile also needs an `AWS` entry for the state bucket.
+    I use the local profile when I'm on that network, and the remote one otherwise.
 
     ```sh
     pnpm alchemy plan   --stage home --profile home          # at home
@@ -33,10 +33,8 @@ The stack declares my networks, firewall zones and Wi-Fi ([network-structure.md]
 ```sh
 pnpm alchemy profile create home
 pnpm alchemy profile edit --profile home --add UnifiNetwork   # choose "Directly"; pin the console's certificate
-pnpm alchemy profile edit --profile home --add AWS
 pnpm alchemy profile create home-remote
 pnpm alchemy profile edit --profile home-remote --add UnifiNetwork   # choose "Through ui.com"; pick the console
-pnpm alchemy profile edit --profile home-remote --add AWS
 # …and the same for holiday / holiday-remote
 pnpm alchemy profile show --profile home   # connects and shows the console's Network version
 ```
@@ -45,9 +43,12 @@ Each of my consoles hosts one UniFi site (UniFi's "site" is a namespace within a
 
 ## State
 
-`AWS.state()` uses Alchemy's default S3 bucket for the account and region (`alchemy-state-<account>-<region>-an`), created on first deploy, with AWS profile `hamishwhc` in `ap-southeast-2`.
+Each site's state lives on its own console, through `UnifiNetwork.state()`: a disabled firewall policy named `alchemy-state/HomeNetwork/<stage>`. So deploying needs nothing but the console, directly or through ui.com. The provider's `docs/state.md` describes it.
 
-State contains the Wi-Fi passphrases; the bucket is private.
+- **Every run locks the stage on the console**, `plan` included: it creates a traffic-matching list `alchemy-lock/HomeNetwork/<stage>` and deletes it when the run ends. Two runs of one site at once fail.
+- **State commands need `--profile`** to find the console, e.g. `pnpm alchemy state ls --profile home`, because they take no `--stage`.
+- **State contains the Wi-Fi passphrases**, readable by anyone who can read the console's firewall policies (who can read the passphrases anyway).
+- **A factory reset wipes it.** Recover with a reviewed `plan --adopt`, then `deploy --adopt`.
 
 ## Provider dependency
 

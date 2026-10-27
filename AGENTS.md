@@ -10,7 +10,7 @@ Things you must know that aren't obvious from the code.
 
 ## Safety
 
-- **The consoles are the user's live home networks.** Never run `alchemy deploy` or `destroy` unless the user explicitly asks for that run. `plan` only reads, so run it whenever it helps.
+- **The consoles are the user's live home networks.** Never run `alchemy deploy` or `destroy` unless the user explicitly asks for that run. `plan` changes no network config, so run it whenever it helps. It does write to the console, though: it locks the stage (a temporary traffic-matching list, recorded in the state policy), so a plan fails while that site is being deployed, and vice versa.
 - **Adoption** of existing objects uses `--adopt`, which applies to the whole run. Always show the user the `plan --adopt` output before any `deploy --adopt`.
 - **Keep `UNIFI_*` variables out of `.env`.** Alchemy prefers env vars over profiles, so one would silently point every stage at one console.
 

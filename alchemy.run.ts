@@ -1,11 +1,11 @@
-import * as AWS from "@alchemy.run/aws";
 import * as UnifiNetwork from "@alchemy-unifi/network";
 import * as Alchemy from "alchemy";
+import { Stack } from "alchemy/Stack";
 import * as Effect from "effect/Effect";
 import { firewall } from "./src/firewall.ts";
 import { networks } from "./src/networks.ts";
 import { SecretSpecSecrets } from "./src/secrets.ts";
-import { site } from "./src/sites.ts";
+import { PLACEHOLDER_STAGE, site } from "./src/sites.ts";
 import { wifi } from "./src/wifi.ts";
 import { zones } from "./src/zones.ts";
 
@@ -18,10 +18,11 @@ export default Alchemy.Stack(
 	"HomeNetwork",
 	{
 		providers: UnifiNetwork.providers(),
-		state: AWS.state(),
-		secrets: ({ stage }) => [SecretSpecSecrets({ profile: stage })],
+		state: UnifiNetwork.state(),
+		secrets: ({ stage }) => (stage === PLACEHOLDER_STAGE ? [] : [SecretSpecSecrets({ profile: stage })]),
 	},
 	Effect.gen(function* () {
+		if ((yield* Stack).stage === PLACEHOLDER_STAGE) return undefined;
 		// Fails unless the profile belongs to this stage's site.
 		const current = yield* site;
 		const zoneResources = yield* zones;

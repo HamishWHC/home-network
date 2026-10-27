@@ -45,6 +45,13 @@ export class WrongConsole extends Data.TaggedError("WrongConsole")<{
 }
 
 /**
+ * The stage Alchemy's state and profile commands evaluate the stack with,
+ * only to find its state store and auth providers. Alchemy doesn't export it.
+ * The stack has no site and no secrets at this stage.
+ */
+export const PLACEHOLDER_STAGE = "placeholder";
+
+/**
  * The site for the current stage, after checking that the UniFi credentials
  * in use belong to it. Profiles hold one console each, so pairing a stage
  * with another site's profile would deploy this site's config onto the
